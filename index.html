@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>佐竹浩二 | グラビアシリンダー製版コンサルタント</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink: #0a0a0a;
+  --paper: #f2ede4;
+  --gold: #c49a52;
+  --gray: #5a5a5a;
+}
+
+html, body {
+  width: 100%; height: 100%;
+  overflow: hidden;
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+/* ===== SLIDER ===== */
+#slider {
+  display: flex;
+  width: 600%;
+  height: 100vh;
+  transition: transform 0.75s cubic-bezier(0.77, 0, 0.175, 1);
+}
+.slide {
+  width: calc(100% / 6);
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ===== NAV DOTS ===== */
+#nav-dots {
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 200;
+}
+.dot {
+  height: 4px;
+  width: 20px;
+  border-radius: 2px;
+  background: rgba(255,255,255,0.3);
+  cursor: pointer;
+  transition: width 0.3s, background 0.3s;
+}
+.dot.active { width: 40px; background: var(--gold); }
+.dot.dark { background: rgba(0,0,0,0.2); }
+.dot.dark.active { background: var(--gold); }
+
+/* ===== COUNTER ===== */
+#slide-counter {
+  position: fixed;
+  bottom: 28px;
+  right: 48px;
+  z-index: 200;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.35);
+  font-weight: 700;
+}
+#slide-counter.dark { color: rgba(0,0,0,0.25); }
+
+/* ===== ARROWS ===== */
+.arrow {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 200;
+  width: 56px; height: 56px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+.arrow:hover { opacity: 1; }
+#arrow-prev { left: 20px; }
+#arrow-next { right: 20px; }
+.arrow svg { width: 28px; height: 28px; }
+
+/* =========================================
+   SLIDE 01 — HERO (full-bleed image)
+   ========================================= */
+.slide-hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 80px 100px;
+  text-align: center;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("Gemini_Generated_Image_%2001.png");
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.04);
+  transition: transform 8s ease;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    160deg,
+    rgba(5,5,5,0.75) 0%,
+    rgba(5,5,5,0.55) 50%,
+    rgba(5,5,5,0.8) 100%
+  );
+}
+.hero-content { position: relative; z-index: 2; }
+.hero-tag {
+  font-size: 0.864rem;
+  font-weight: 700;
+  letter-spacing: 0.4em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+.hero-tag::before {
+  content: "";
+  display: block;
+  width: 40px; height: 2px;
+  background: var(--gold);
+}
+.hero-name {
+  font-size: clamp(4rem, 9vw, 9rem);
+  font-weight: 900;
+  color: #fff;
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+}
+.hero-name span {
+  display: block;
+  font-size: clamp(1.8rem, 3.5vw, 3.5rem);
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  color: rgba(255,255,255,0.55);
+  margin-top: 12px;
+}
+.hero-lead {
+  font-size: clamp(1.1rem, 2.2vw, 1.8rem);
+  color: #fff;
+  line-height: 1.9;
+  max-width: 760px;
+  margin-bottom: 48px;
+  font-weight: 400;
+}
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #fff;
+  cursor: pointer;
+  background: none; border: none;
+  padding: 0;
+  font-family: inherit;
+  transition: gap 0.3s;
+}
+.hero-cta:hover { gap: 28px; }
+.hero-cta::after {
+  content: "";
+  display: block;
+  width: 60px; height: 1px;
+  background: var(--gold);
+}
+
+/* =========================================
+   SLIDE 02 — PROFILE
+   ========================================= */
+.slide-profile {
+  background: var(--paper);
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  align-items: center;
+  padding: 80px 80px 80px 80px;
+  gap: 64px;
+}
+.profile-text {}
+.section-label {
+  font-size: 1.36rem;
+  font-weight: 700;
+  letter-spacing: 0.4em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.section-label::before {
+  content: "";
+  display: block;
+  width: 40px; height: 2px;
+  background: var(--gold);
+}
+.profile-text h2 {
+  font-size: clamp(2.4rem, 4vw, 4rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 28px;
+}
+.profile-text p {
+  font-size: 1.4rem;
+  color: var(--gray);
+  line-height: 2.1;
+  margin-bottom: 36px;
+  max-width: 680px;
+}
+.profile-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 32px;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  padding-top: 28px;
+}
+.hero-tool-strip {
+  position: absolute;
+  bottom: 120px;
+  left: 80px;
+  right: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  z-index: 2;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  padding-top: 20px;
+  cursor: pointer;
+  text-align: center;
+}
+.hero-tool-strip .tool-strip-label { color: rgba(255,255,255,0.45); }
+.hero-tool-strip .tool-badges-row { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+.hero-tool-strip .tool-badge { color: #fff; background: rgba(196,154,82,0.12); }
+.hero-tool-strip:hover .tool-badge { background: rgba(196,154,82,0.25); }
+.hero-tool-strip .tool-strip-more { color: var(--gold); font-size: 2.2rem; width: 100%; text-align: center; }
+.tool-strip-hint {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.7);
+  letter-spacing: 0.1em;
+  text-align: center;
+}
+
+.profile-tool-strip {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-top: 1px solid rgba(0,0,0,0.08);
+  padding-top: 20px;
+  margin-top: 20px;
+  cursor: pointer;
+  flex-wrap: wrap;
+}
+.tool-strip-label {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gray);
+}
+.tool-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ink);
+  background: rgba(196,154,82,0.1);
+  border: 1px solid rgba(196,154,82,0.35);
+  padding: 5px 14px;
+  letter-spacing: 0.05em;
+  transition: background 0.2s;
+}
+.profile-tool-strip:hover .tool-badge { background: rgba(196,154,82,0.2); }
+.tool-strip-more {
+  margin-left: auto;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  animation: numBlink 3.5s 0s infinite;
+}
+.meta-item dt {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #bbb;
+  margin-bottom: 4px;
+}
+.meta-item dd {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+.profile-photo-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.profile-photo {
+  width: 260px;
+  height: 320px;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 2px;
+  filter: sepia(10%) contrast(1.04);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.18);
+}
+.photo-caption {
+  font-size: 2.1rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: #bbb;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* =========================================
+   SLIDE 03 — SKILLS (dark)
+   ========================================= */
+.slide-skills {
+  background: var(--ink);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 80px;
+  position: relative;
+  overflow: hidden;
+}
+.slide-skills::after {
+  content: "SKILLS";
+  position: absolute;
+  bottom: -40px; right: -20px;
+  font-size: 20vw;
+  font-weight: 900;
+  color: rgba(255,255,255,0.025);
+  pointer-events: none;
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+.slide-skills .section-label { color: var(--gold); }
+.slide-skills .section-label::before { background: var(--gold); }
+.slide-skills h2 {
+  font-size: clamp(2.2rem, 3.5vw, 3.5rem);
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -0.02em;
+  margin-bottom: 40px;
+}
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,0.06);
+  margin-bottom: 24px;
+}
+.skill-item {
+  background: var(--ink);
+  padding: 32px 28px;
+  transition: background 0.3s;
+}
+.skill-item:hover { background: #161616; }
+@keyframes numBlink {
+  0%   { color: var(--gold); text-shadow: none; }
+  6%   { color: #fff; text-shadow: 0 0 28px rgba(255,255,255,0.95); }
+  12%  { color: var(--gold); text-shadow: none; }
+  18%  { color: #fff; text-shadow: 0 0 28px rgba(255,255,255,0.95); }
+  24%  { color: var(--gold); text-shadow: none; }
+  25%  { color: var(--gold); text-shadow: none; }
+  100% { color: var(--gold); text-shadow: none; }
+}
+
+.skill-num {
+  font-size: 2.4rem;
+  font-weight: 900;
+  color: var(--gold);
+  letter-spacing: -0.03em;
+  margin-bottom: 14px;
+  display: block;
+  line-height: 1;
+}
+
+.skill-item:nth-child(1) .skill-num { animation: numBlink 20s 0s infinite; }
+.skill-item:nth-child(2) .skill-num { animation: numBlink 20s 5s infinite; }
+.skill-item:nth-child(3) .skill-num { animation: numBlink 20s 10s infinite; }
+.skill-item:nth-child(4) .skill-num { animation: numBlink 20s 15s infinite; }
+.skill-item h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+.skill-item p {
+  font-size: 1.64rem;
+  color: rgba(255,255,255,0.38);
+  line-height: 1.8;
+}
+.biz-strip {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  border: 1px solid rgba(196,154,82,0.35);
+  padding: 22px 28px;
+}
+.biz-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+.biz-strip h3 {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--gold);
+  white-space: normal;
+  line-height: 1.2;
+  animation: numBlink 3.5s 0s infinite;
+}
+.biz-strip p {
+  font-size: 1.64rem;
+  color: rgba(255,255,255,0.38);
+  line-height: 1.75;
+}
+
+/* =========================================
+   SLIDE 04 — PATENT
+   ========================================= */
+.slide-patent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.patent-left {
+  background: #111;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 52px 52px;
+  position: relative;
+  overflow: hidden;
+}
+.patent-left::after {
+  content: "PAT.";
+  position: absolute;
+  bottom: -20px; right: -10px;
+  font-size: 14vw;
+  font-weight: 900;
+  color: rgba(255,255,255,0.03);
+  pointer-events: none;
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+.patent-left .section-label { color: var(--gold); font-size: 1.36rem; }
+.patent-left .section-label::before { background: var(--gold); }
+.patent-left h2 {
+  font-size: clamp(2.4rem, 3.5vw, 3.8rem);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+.free-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(74,124,89,0.2);
+  border: 1px solid rgba(74,124,89,0.6);
+  color: #7ec99a;
+  font-size: 1.44rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  padding: 7px 18px;
+  border-radius: 2px;
+  margin-bottom: 28px;
+}
+.patent-left p {
+  font-size: 1.4rem;
+  color: rgba(255,255,255,0.42);
+  line-height: 1.9;
+}
+.patent-right {
+  background: var(--paper);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 64px;
+}
+.patent-right dl {}
+.patent-right dt {
+  font-size: 1.24rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-top: 28px;
+  margin-bottom: 6px;
+}
+.patent-right dt:first-child { margin-top: 0; }
+.patent-right dd {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.7;
+}
+.patent-note {
+  margin-top: 32px;
+  padding: 18px 22px;
+  background: #eef5f0;
+  border-left: 4px solid #4a7c59;
+  font-size: 1.7rem;
+  color: #3a6b47;
+  line-height: 1.8;
+  font-weight: 400;
+}
+
+/* contact-left / right shared styles */
+.contact-left .section-label { color: var(--gold); font-size: 2.72rem; }
+.contact-left .section-label::before { background: var(--gold); }
+.contact-left h2 {
+  font-size: clamp(2.8rem, 4.5vw, 5rem);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin-bottom: 24px;
+}
+.contact-left p {
+  font-size: 1.9rem;
+  color: rgba(255,255,255,0.45);
+  line-height: 2.1;
+  margin-bottom: 32px;
+}
+.contact-email-link {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--gold);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  letter-spacing: 0.05em;
+}
+.contact-email-link::before {
+  content: "";
+  display: block;
+  width: 40px; height: 2px;
+  background: var(--gold);
+}
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  background: rgba(255,255,255,0.08);
+  border: none;
+  border-bottom: 2px solid rgba(255,255,255,0.5);
+  color: #fff;
+  padding: 16px 12px;
+  font-family: inherit;
+  font-size: 2.1rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  outline: none;
+  transition: border-color 0.3s, background 0.3s;
+  border-radius: 2px 2px 0 0;
+}
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: rgba(255,255,255,0.7);
+  font-size: 2rem;
+  font-weight: 400;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-bottom-color: var(--gold);
+  background: rgba(255,255,255,0.13);
+}
+.contact-form textarea { height: 110px; resize: none; }
+.contact-form button {
+  background: var(--gold);
+  border: none;
+  color: var(--ink);
+  padding: 22px 40px;
+  font-family: inherit;
+  font-size: 1.7rem;
+  font-weight: 900;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: opacity 0.3s;
+  width: 100%;
+}
+.contact-form button:hover { opacity: 0.85; }
+.contact-info {
+  margin-top: 28px;
+  border-top: 1px solid rgba(255,255,255,0.12);
+  padding-top: 24px;
+}
+.contact-info p {
+  font-size: 1.65rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.9;
+  margin-bottom: 8px;
+}
+.form-msg {
+  margin-top: 14px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--gold);
+  display: none;
+}
+
+/* ===== SITE LOGO ===== */
+#site-logo {
+  position: fixed;
+  top: 24px;
+  right: 36px;
+  z-index: 300;
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 6px;
+  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+}
+#site-logo img {
+  height: 108px;
+  width: auto;
+  display: block;
+}
+
+/* =========================================
+   SLIDE 05 — CONTACT (silver cylinder bg)
+   ========================================= */
+.slide-contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 80px 80px 100px;
+}
+.contact-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("Gemini_Generated_Image_end.png");
+  background-size: cover;
+  background-position: center;
+}
+.contact-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    160deg,
+    rgba(5,10,20,0.82) 0%,
+    rgba(5,10,20,0.65) 50%,
+    rgba(5,10,20,0.85) 100%
+  );
+}
+.contact-content {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: end;
+}
+.contact-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0;
+  position: static;
+  overflow: visible;
+  background: transparent;
+}
+.contact-left::after { display: none; }
+.contact-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0;
+  border-left: 1px solid rgba(255,255,255,0.1);
+  padding-left: 64px;
+  background: transparent;
+}
+
+/* =========================================
+   SLIDE 06 — HOW MADE (tool introduction)
+   ========================================= */
+.slide-howmade {
+  background: var(--ink);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 80px 80px;
+  position: relative;
+  overflow-y: auto;
+}
+.slide-howmade::after {
+  content: "TOOLS";
+  position: absolute;
+  bottom: -40px; right: -20px;
+  font-size: 20vw;
+  font-weight: 900;
+  color: rgba(255,255,255,0.025);
+  pointer-events: none;
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+.slide-howmade .section-label { color: var(--gold); }
+.slide-howmade .section-label::before { background: var(--gold); }
+.slide-howmade h2 {
+  font-size: clamp(2.2rem, 3.5vw, 3.5rem);
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -0.02em;
+  margin-bottom: 32px;
+}
+.howmade-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: rgba(255,255,255,0.06);
+  margin-bottom: 24px;
+}
+.howmade-step {
+  background: var(--ink);
+  padding: 28px 28px;
+  transition: background 0.3s;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.howmade-step:hover { background: #161616; }
+.step-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.step-num {
+  font-size: 2.4rem;
+  font-weight: 900;
+  color: var(--gold);
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+.step-icon { font-size: 1.8rem; line-height: 1; }
+.howmade-step h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+.howmade-step p {
+  font-size: 1.4rem;
+  color: rgba(255,255,255,0.38);
+  line-height: 1.8;
+}
+.howmade-images {
+  background: var(--ink);
+  padding: 28px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.howmade-imgs-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  flex: 1;
+}
+.howmade-img-wrap {
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.howmade-img-wrap img {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+  display: block;
+  filter: sepia(10%) contrast(1.04);
+}
+.howmade-img-label {
+  padding: 6px 10px;
+  font-size: 1.2rem;
+  color: #fff;
+  background: rgba(255,255,255,0.03);
+  text-align: center;
+  letter-spacing: 0.1em;
+  font-weight: 400;
+}
+.affiliate-strip {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border: 1px solid rgba(196,154,82,0.35);
+  padding: 22px 28px;
+  position: relative;
+  z-index: 1;
+}
+.affiliate-strip-top {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.affiliate-strip-top .affiliate-btn { margin-left: auto; }
+.affiliate-strip h3 {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: var(--gold);
+  white-space: nowrap;
+}
+.affiliate-strip p {
+  font-size: 1.4rem;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.7;
+  flex: 1;
+}
+.affiliate-btn {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(196,154,82,0.6);
+  color: var(--gold);
+  font-weight: 700;
+  font-size: 1.3rem;
+  padding: 12px 24px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: background 0.2s, color 0.2s;
+  text-decoration: none;
+  white-space: nowrap;
+  animation: numBlink 3.5s 0s infinite;
+}
+.affiliate-btn:hover { background: var(--gold); color: #fff; }
+.affiliate-note { font-size: 1rem; color: rgba(255,255,255,0.22); margin-top: 6px; letter-spacing: 0.05em; }
+.img-title { color: var(--gold); font-weight: 700; }
+.img-desc { font-size: 0.96rem; }
+.back-to-top {
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 1.56rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.85);
+  cursor: pointer;
+  background: none;
+  border: 2px solid rgba(255,255,255,0.6);
+  padding: 18px 36px;
+  font-family: inherit;
+  margin-top: 24px;
+  transition: color 0.3s, border-color 0.3s, gap 0.3s;
+}
+.back-to-top::before {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: rgba(255,255,255,0.5);
+  transition: width 0.3s, background 0.3s;
+}
+.back-to-top:hover { color: var(--gold); border-color: var(--gold); gap: 28px; }
+.back-to-top:hover::before { width: 56px; background: var(--gold); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .slide-hero { padding: 80px 32px 100px; }
+  .slide-profile { grid-template-columns: 1fr; padding: 80px 32px; }
+  .profile-photo-wrap { display: none; }
+  .slide-skills { padding: 80px 32px; }
+  .skills-grid { grid-template-columns: 1fr 1fr; }
+  .slide-patent { grid-template-columns: 1fr; overflow-y: auto; height: auto; min-height: 100vh; }
+  .patent-left,
+  .patent-right { padding: 60px 32px; }
+  .slide-contact { padding: 80px 32px 80px; }
+  .contact-content { grid-template-columns: 1fr; gap: 40px; }
+  .contact-right { border-left: none; padding-left: 0; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 32px; }
+  .slide-howmade { padding: 80px 32px; }
+  .howmade-body { grid-template-columns: 1fr 1fr; }
+  .affiliate-strip { grid-template-columns: 1fr; }
+  .affiliate-strip-right { align-items: flex-start; }
+}
+
+@media (max-width: 768px) {
+  /* ロゴ */
+  #site-logo { padding: 6px 10px; }
+  #site-logo img { height: 40px; }
+
+  /* Hero */
+  .slide-hero { padding: 70px 24px 90px; }
+  .hero-tag { font-size: 0.55rem; }
+  .hero-name { font-size: 3rem; }
+  .hero-name span { font-size: 1.1rem; }
+  .hero-lead { font-size: 0.95rem; margin-bottom: 32px; }
+
+  /* Profile */
+  .slide-profile { grid-template-columns: 1fr; padding: 70px 24px; }
+  .profile-photo-wrap { display: none; }
+  .section-label { font-size: 0.85rem; letter-spacing: 0.2em; }
+  .profile-text h2 { font-size: 1.8rem; }
+  .profile-text p { font-size: 0.95rem; }
+  .meta-item dt { font-size: 0.7rem; }
+  .meta-item dd { font-size: 1rem; }
+  .contact-left .section-label { font-size: 0.85rem; }
+  .patent-left .section-label { font-size: 0.85rem; }
+
+  /* Skills */
+  .skills-grid { grid-template-columns: 1fr 1fr; }
+  .slide-skills { padding: 60px 24px; overflow-y: auto; }
+  .slide-skills h2 { font-size: 1.6rem; margin-bottom: 20px; }
+  .skill-num { font-size: 1.6rem; margin-bottom: 8px; }
+  .skill-item { padding: 20px 16px; }
+  .skill-item h3 { font-size: 1rem; }
+  .skill-item p { font-size: 0.82rem; }
+  .biz-strip { flex-direction: column; align-items: flex-start; gap: 8px; padding: 16px 20px; }
+  .biz-strip h3 { font-size: 1.1rem; white-space: nowrap; }
+  .biz-strip p { font-size: 0.82rem; }
+
+  /* Patent */
+  .slide-patent { grid-template-columns: 1fr; overflow-y: auto; height: auto; min-height: 100vh; }
+  .patent-left { padding: 60px 24px; }
+  .patent-right { padding: 40px 24px; }
+  .patent-left h2 { font-size: 2rem; }
+  .free-badge { font-size: 0.85rem; }
+  .patent-left p { font-size: 0.95rem; }
+  .patent-right dt { font-size: 0.7rem; }
+  .patent-right dd { font-size: 1rem; }
+  .patent-note { font-size: 0.88rem; }
+
+  /* Contact */
+  .slide-contact { padding: 70px 24px 80px; }
+  .slide-howmade { padding: 70px 24px; overflow-y: auto; }
+  .howmade-images { grid-template-columns: 1fr 1fr; }
+  .contact-content { grid-template-columns: 1fr; gap: 32px; }
+  .contact-right { border-left: none; padding-left: 0; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 28px; }
+  .contact-left h2 { font-size: 2.5rem; }
+  .contact-left p { font-size: 1rem; }
+  .contact-email-link { font-size: 1rem; }
+  .contact-info p { font-size: 0.95rem; }
+  .contact-form input,
+  .contact-form textarea { font-size: 1.1rem; }
+  .contact-form input::placeholder,
+  .contact-form textarea::placeholder { font-size: 1rem; }
+  .contact-form button { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- Site Logo -->
+<div id="site-logo">
+  <img src="gojtロゴ.png" alt="GravureOJT">
+</div>
+
+<div id="slider">
+
+  <!-- ===== SLIDE 01: HERO ===== -->
+  <div class="slide slide-hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-tag">Gravure Cylinder Making Consultant</p>
+      <h1 class="hero-name">
+        GravureOJT
+        <span>グラビアオージェイティ</span>
+      </h1>
+      <p class="hero-lead">
+        グラビア製版業界に長年携わるフリーランスコンサルタント。
+        製版装置メーカーから独立した第三者として、
+        品質改善・工程最適化・新規参入支援を行います。
+      </p>
+      <button class="hero-cta" onclick="goTo(1)">PROFILE</button>
+    </div>
+    <div class="hero-tool-strip" onclick="goTo(5)">
+      <span class="tool-strip-more">ノーコードでこのページを作成しました</span>
+      <div class="tool-badges-row">
+        <span class="tool-badge">🎙️ Typeless</span>
+        <span class="tool-badge">🤖 Claude Code</span>
+        <span class="tool-badge">🎨 Gemini</span>
+      </div>
+      <span class="tool-strip-hint">点滅文字をタップしてください</span>
+    </div>
+  </div>
+
+  <!-- ===== SLIDE 02: PROFILE ===== -->
+  <div class="slide slide-profile">
+    <div class="profile-text">
+      <p class="section-label">Profile</p>
+      <h2>グラビア製版の<br>専門コンサルタント</h2>
+      <p>
+        製版工程の品質改善・コスト最適化・新規参入支援を専門とします。<br>
+        製版装置メーカーとは独立した第三者の立場から、
+        課題の発見から改善施策の定着まで一貫してサポートします。
+      </p>
+      <div class="profile-meta">
+        <dl class="meta-item">
+          <dt>Name</dt>
+          <dd>佐竹 浩二</dd>
+        </dl>
+        <dl class="meta-item">
+          <dt>Role</dt>
+          <dd>グラビア製版コンサルタント</dd>
+        </dl>
+        <dl class="meta-item">
+          <dt>Patent</dt>
+          <dd>特許第3144019号（満了）</dd>
+        </dl>
+        <dl class="meta-item">
+          <dt>Email</dt>
+          <dd>k-satake@gojt.work</dd>
+        </dl>
+        <dl class="meta-item">
+          <dt>Tel</dt>
+          <dd>090-9146-1516</dd>
+        </dl>
+        <dl class="meta-item" style="grid-column: 1 / -1;">
+          <dt>Address</dt>
+          <dd>〒273-0115 千葉県鎌ケ谷市東道野辺3丁目15-8-603</dd>
+        </dl>
+      </div>
+    </div>
+    <div class="profile-photo-wrap">
+      <img class="profile-photo" src="photo.jpg" alt="佐竹浩二">
+      <p class="photo-caption">Koji Satake</p>
+    </div>
+  </div>
+
+  <!-- ===== SLIDE 03: SKILLS ===== -->
+  <div class="slide slide-skills">
+    <p class="section-label">Skills &amp; Services</p>
+    <h2>得意分野・サービス</h2>
+    <div class="skills-grid">
+      <div class="skill-item">
+        <span class="skill-num">01</span>
+        <h3>製版品質改善</h3>
+        <p>色再現性・網点品質の向上、不良率低減。現場課題を数値化し根本から改善。</p>
+      </div>
+      <div class="skill-item">
+        <span class="skill-num">02</span>
+        <h3>工程最適化</h3>
+        <p>ボトルネック分析、コスト削減・生産性向上の施策立案と実施支援。</p>
+      </div>
+      <div class="skill-item">
+        <span class="skill-num">03</span>
+        <h3>技術顧問・人材育成</h3>
+        <p>新人技術者の育成、社内研修プログラムの設計・実施。</p>
+      </div>
+      <div class="skill-item">
+        <span class="skill-num">04</span>
+        <h3>新規参入支援</h3>
+        <p>グラビア製版への新規参入企業の市場調査・設備選定・立ち上げ支援。</p>
+      </div>
+    </div>
+    <div class="biz-strip">
+      <div class="biz-dot"></div>
+      <h3>濾材洗浄サービス</h3>
+      <p>銅メッキ砥石研磨用ろ過装置の濾材専門洗浄。<br>濾過助剤削減と作業者負担軽減します。ご相談はお問い合わせから。</p>
+    </div>
+  </div>
+
+  <!-- ===== SLIDE 04: PATENT ===== -->
+  <div class="slide slide-patent">
+    <div class="patent-left">
+      <p class="section-label">Patent</p>
+      <h2>特許技術の<br>無償公開</h2>
+      <span class="free-badge">&#10003; 権利満了 — 誰でも自由に利用可</span>
+      <p>
+        取得した特許技術は存続期間満了により、現在は誰でも自由に実施できます。
+        業界の発展にお役立ていただければ幸いです。
+        導入サポートも承ります。
+      </p>
+    </div>
+    <div class="patent-right">
+      <dl>
+        <dt>特許番号</dt>
+        <dd>特許第3144019号</dd>
+        <dt>発明の名称</dt>
+        <dd>スクリーン角度自動変換方法及び<br>スクリーン角度自動変換装置</dd>
+        <dt>技術の効果</dt>
+        <dd>モアレ低減 / 色再現性向上 / 作業工数削減</dd>
+        <dt>権利状況</dt>
+        <dd>存続期間満了により消滅。<br>現在は誰でも自由に実施可能。</dd>
+      </dl>
+      <div class="patent-note">
+        この技術を活用したい企業・個人は、お問い合わせフォームよりご連絡ください。
+        技術的な背景や導入方法についても丁寧にご説明します。
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SLIDE 05: CONTACT (silver cylinder) ===== -->
+  <div class="slide slide-contact">
+    <div class="contact-bg"></div>
+    <div class="contact-overlay"></div>
+    <div class="contact-content">
+      <div class="contact-left">
+        <p class="section-label">Contact</p>
+        <h2>お問い<br>合わせ</h2>
+        <p>
+          コンサルティング依頼・濾材洗浄のご相談・
+          特許技術の活用など、お気軽にご連絡ください。
+        </p>
+        <a class="contact-email-link" href="mailto:k-satake@gojt.work">
+          k-satake@gojt.work
+        </a>
+        <div class="contact-info">
+          <p>〒273-0115<br>千葉県鎌ケ谷市東道野辺3丁目15-8-603</p>
+          <p>TEL：090-9146-1516</p>
+        </div>
+      </div>
+      <div class="contact-right">
+        <form class="contact-form" id="contactForm"
+              action="https://formspree.io/f/xpwzgvjl"
+              method="POST">
+          <input type="text" name="name" placeholder="お名前 *" required>
+          <input type="email" name="email" placeholder="メールアドレス *" required>
+          <input type="text" name="company" placeholder="会社名（任意）">
+          <textarea name="message" placeholder="お問い合わせ内容 *" required></textarea>
+          <button type="submit">SEND MESSAGE</button>
+          <p class="form-msg" id="formMsg">送信しました。ありがとうございます。</p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SLIDE 06: HOW MADE ===== -->
+  <div class="slide slide-howmade">
+    <p class="section-label">How This Page Was Made</p>
+    <h2>ノーコードで<br>このページを制作しました</h2>
+    <div class="howmade-body">
+      <div class="howmade-step">
+        <div class="step-header">
+          <span class="step-num">01</span>
+          <span class="step-icon">🎙️</span>
+        </div>
+        <h3>Typeless で音声入力</h3>
+        <p>作りたいページのイメージを声で入力。キーボード不要でアイデアをそのまま言葉にできます。</p>
+      </div>
+      <div class="howmade-step">
+        <div class="step-header">
+          <span class="step-num">02</span>
+          <span class="step-icon">🤖</span>
+        </div>
+        <h3>Claude Code でコード生成</h3>
+        <p>音声で伝えた内容をもとに、Claude Code が HTML/CSS を自動生成。修正も会話するだけで完了。</p>
+      </div>
+      <div class="howmade-step">
+        <div class="step-header">
+          <span class="step-num">03</span>
+          <span class="step-icon">🎨</span>
+        </div>
+        <h3>Gemini で画像生成</h3>
+        <p>このページのビジュアルは Gemini が生成。イメージを言葉で伝えるだけでオリジナル画像が完成。</p>
+      </div>
+      <div class="howmade-images">
+        <div class="howmade-imgs-row">
+          <div class="howmade-img-wrap">
+            <img src="Gemini_Generated_Image_%2001.png" alt="生成画像1">
+            <div class="howmade-img-label"><span class="img-title">生成画像1</span><br><span class="img-desc">シリンダー表面を銅メッキ後のイメージを意識したプロンプトで作成</span></div>
+          </div>
+          <div class="howmade-img-wrap">
+            <img src="Gemini_Generated_Image_end.png" alt="生成画像2">
+            <div class="howmade-img-label"><span class="img-title">生成画像2</span><br><span class="img-desc">シリンダー表面をクロームメッキ後のイメージを意識したプロンプトで作成</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="back-to-top" onclick="goTo(0)">Back to Top</button>
+    <div class="affiliate-strip">
+      <div class="affiliate-strip-top">
+        <h3>🎙️ Typeless</h3>
+        <a href="https://www.typeless.com?via=koji-satake" target="_blank" class="affiliate-btn">Try Typeless →</a>
+      </div>
+      <p>日本語に強いAI音声認識で、話すスピードでテキスト入力が完了。Claude Code・Gemini と組み合わせることでプログラミング知識なしでも本格的なページ制作が可能です。</p>
+      <p class="affiliate-note">※ アフィリエイトリンク</p>
+    </div>
+  </div>
+
+</div><!-- /#slider -->
+
+<!-- Nav dots -->
+<div id="nav-dots">
+  <div class="dot active" onclick="goTo(0)"></div>
+  <div class="dot" onclick="goTo(1)"></div>
+  <div class="dot" onclick="goTo(2)"></div>
+  <div class="dot" onclick="goTo(3)"></div>
+  <div class="dot" onclick="goTo(4)"></div>
+  <div class="dot" onclick="goTo(5)"></div>
+</div>
+
+<!-- Counter -->
+<div id="slide-counter">01 / 06</div>
+
+<!-- Arrows -->
+<div class="arrow" id="arrow-prev" onclick="prev()">
+  <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5">
+    <polyline points="15 18 9 12 15 6"></polyline>
+  </svg>
+</div>
+<div class="arrow" id="arrow-next" onclick="next()">
+  <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5">
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </svg>
+</div>
+
+<script>
+var current = 0;
+var total = 6;
+var isAnimating = false;
+var lightSlides = [1, 3];
+
+function goTo(index) {
+  if (index < 0 || index >= total) return;
+  current = index;
+  document.getElementById("slider").style.transform =
+    "translateX(-" + (current * 100 / 6).toFixed(6) + "%)";
+
+  var dots = document.querySelectorAll(".dot");
+  var isLight = lightSlides.indexOf(current) !== -1;
+  for (var i = 0; i < dots.length; i++) {
+    dots[i].classList.remove("active");
+    if (isLight) { dots[i].classList.add("dark"); }
+    else { dots[i].classList.remove("dark"); }
+  }
+  dots[current].classList.add("active");
+
+  var counter = document.getElementById("slide-counter");
+  counter.textContent = (current + 1 < 10 ? "0" : "") + (current + 1) + " / 0" + total;
+  counter.className = isLight ? "dark" : "";
+
+  var arrowColor = isLight ? "rgba(0,0,0,0.3)" : "rgba(255,255,255,0.5)";
+  var arrows = document.querySelectorAll(".arrow svg");
+  for (var j = 0; j < arrows.length; j++) {
+    arrows[j].setAttribute("stroke", arrowColor);
+  }
+}
+
+function next() {
+  if (!isAnimating) {
+    isAnimating = true;
+    goTo(current + 1);
+    setTimeout(function() { isAnimating = false; }, 800);
+  }
+}
+function prev() {
+  if (!isAnimating) {
+    isAnimating = true;
+    goTo(current - 1);
+    setTimeout(function() { isAnimating = false; }, 800);
+  }
+}
+
+window.addEventListener("wheel", function(e) {
+  if (isAnimating) return;
+  if (e.deltaY > 0 || e.deltaX > 0) { next(); } else { prev(); }
+}, { passive: true });
+
+window.addEventListener("keydown", function(e) {
+  if (e.key === "ArrowRight" || e.key === "ArrowDown") { next(); }
+  if (e.key === "ArrowLeft" || e.key === "ArrowUp") { prev(); }
+});
+
+var touchStartX = 0;
+window.addEventListener("touchstart", function(e) {
+  touchStartX = e.changedTouches[0].clientX;
+}, { passive: true });
+window.addEventListener("touchend", function(e) {
+  var dx = e.changedTouches[0].clientX - touchStartX;
+  if (Math.abs(dx) > 50) {
+    if (dx < 0) { next(); } else { prev(); }
+  }
+}, { passive: true });
+
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  var form = this;
+  fetch(form.action, {
+    method: "POST",
+    body: new FormData(form),
+    headers: { "Accept": "application/json" }
+  }).then(function(r) {
+    if (r.ok) {
+      form.reset();
+      document.getElementById("formMsg").style.display = "block";
+    }
+  });
+});
+</script>
+</body>
+</html>
