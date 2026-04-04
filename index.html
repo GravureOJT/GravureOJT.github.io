@@ -767,7 +767,7 @@ html, body {
 .slide-howmade .section-label { color: var(--gold); }
 .slide-howmade .section-label::before { background: var(--gold); }
 .slide-howmade h2 {
-  font-size: clamp(2.2rem, 3.5vw, 3.5rem);
+  font-size: clamp(1.4rem, 2.5vw, 2.2rem);
   font-weight: 900;
   color: #fff;
   letter-spacing: -0.02em;
@@ -993,7 +993,13 @@ html, body {
   /* Contact */
   .slide-contact { padding: 70px 24px 80px; }
   .slide-howmade { padding: 70px 24px; overflow-y: auto; }
-  .howmade-images { grid-template-columns: 1fr 1fr; }
+  .howmade-body { grid-template-columns: 1fr; }
+  .howmade-step h3 { font-size: 1.2rem; }
+  .howmade-step p { font-size: 1rem; }
+  .howmade-images { grid-template-columns: 1fr; }
+  .howmade-imgs-row { grid-template-columns: 1fr 1fr; }
+  .img-title { font-size: 0.9rem; }
+  .img-desc { font-size: 0.75rem; line-height: 1.5; }
   .contact-content { grid-template-columns: 1fr; gap: 32px; }
   .contact-right { border-left: none; padding-left: 0; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 28px; }
   .contact-left h2 { font-size: 2.5rem; }
@@ -1035,7 +1041,7 @@ html, body {
       <button class="hero-cta" onclick="goTo(1)">PROFILE</button>
     </div>
     <div class="hero-tool-strip" onclick="goTo(5)">
-      <span class="tool-strip-more">ノーコードでこのページを作成しました</span>
+      <span class="tool-strip-more">ノーコードでこのサイトを作成</span>
       <div class="tool-badges-row">
         <span class="tool-badge">🎙️ Typeless</span>
         <span class="tool-badge">🤖 Claude Code</span>
@@ -1189,7 +1195,7 @@ html, body {
   <!-- ===== SLIDE 06: HOW MADE ===== -->
   <div class="slide slide-howmade">
     <p class="section-label">How This Page Was Made</p>
-    <h2>ノーコードで<br>このページを制作しました</h2>
+    <h2>ノーコードでこのサイトを作成</h2>
     <div class="howmade-body">
       <div class="howmade-step">
         <div class="step-header">
