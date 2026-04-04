@@ -949,11 +949,12 @@ html, body {
   #site-logo img { height: 40px; }
 
   /* Hero */
-  .slide-hero { padding: 70px 24px 90px; }
-  .hero-tag { font-size: 0.55rem; }
-  .hero-name { font-size: 3rem; }
+  .slide-hero { padding: 40px 24px 200px; justify-content: flex-start; }
+  .hero-tag { font-size: 0.75rem; letter-spacing: 0.15em; flex-direction: column; gap: 6px; margin-bottom: 24px; }
+  .hero-tag::before { width: 30px; }
+  .hero-name { font-size: 3rem; margin-bottom: 16px; }
   .hero-name span { font-size: 1.1rem; }
-  .hero-lead { font-size: 0.95rem; margin-bottom: 32px; }
+  .hero-lead { font-size: 0.95rem; margin-bottom: 24px; }
 
   /* Profile */
   .slide-profile { grid-template-columns: 1fr; padding: 70px 24px; }
@@ -1021,7 +1022,7 @@ html, body {
     <div class="hero-bg"></div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <p class="hero-tag">Gravure Cylinder Making Consultant</p>
+      <p class="hero-tag">Gravure Cylinder<br>Making Consultant</p>
       <h1 class="hero-name">
         GravureOJT
         <span>グラビアオージェイティ</span>
