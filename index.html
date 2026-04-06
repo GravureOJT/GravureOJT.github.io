@@ -973,22 +973,22 @@ html, body {
   #site-logo img { height: 40px; }
 
   /* Hero */
-  .slide-hero { padding: 32px 24px 24px; justify-content: flex-start; }
+  .slide-hero { padding: 60px 24px 160px; justify-content: center; }
   .hero-tag { font-size: 0.7rem; letter-spacing: 0.12em; flex-direction: column; gap: 4px; margin-bottom: 16px; }
   .hero-tag::before { width: 24px; }
   .hero-name { font-size: 2.6rem; margin-bottom: 12px; }
   .hero-name span { font-size: 1rem; }
   .hero-lead { font-size: 0.85rem; margin-bottom: 16px; line-height: 1.7; }
   .hero-cta { padding: 10px 24px; font-size: 0.8rem; }
-  .hero-tool-strip { position: relative; bottom: auto; left: auto; right: auto; margin-top: auto; padding-top: 16px; }
+  .hero-tool-strip { position: absolute; bottom: 60px; left: 24px; right: 24px; }
   .hero-tool-strip .tool-strip-more { font-size: 1.1rem; }
   .tool-strip-hint { font-size: 0.75rem; }
   .tool-badge { font-size: 0.75rem; padding: 4px 10px; }
 
   /* Profile */
-  .slide-profile { grid-template-columns: 1fr; padding: 70px 24px; }
-  .profile-photo-wrap { display: flex; justify-content: center; margin-bottom: 24px; }
-  .profile-photo { width: 160px; height: 160px; }
+  .slide-profile { grid-template-columns: 1fr; padding: 70px 24px; overflow-y: auto; }
+  .profile-photo-wrap { display: flex; justify-content: center; margin-top: 32px; order: 999; }
+  .profile-photo { width: 140px; height: 140px; }
   .section-label { font-size: 0.85rem; letter-spacing: 0.2em; }
   .profile-text h2 { font-size: 1.8rem; }
   .profile-text p { font-size: 0.95rem; }
