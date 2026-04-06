@@ -667,6 +667,25 @@ html, body {
   display: none;
 }
 
+/* ===== LANG BUTTON ===== */
+#lang-btn {
+  position: fixed;
+  top: 24px;
+  left: 24px;
+  z-index: 300;
+  color: #fff;
+  background: rgba(196,154,82,0.2);
+  border: 1px solid rgba(196,154,82,0.5);
+  padding: 6px 16px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+#lang-btn:hover { background: var(--gold); color: #fff; }
+
 /* ===== SITE LOGO ===== */
 #site-logo {
   position: fixed;
@@ -1052,6 +1071,7 @@ html, body {
 <div id="site-logo">
   <img src="gojtロゴ.png" alt="GravureOJT">
 </div>
+<a href="en.html" id="lang-btn">English</a>
 
 <div id="slider">
 
