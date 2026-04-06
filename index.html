@@ -897,23 +897,25 @@ html, body {
 .howmade-affiliate {
   grid-column: 1 / -1;
   display: flex;
-  align-items: center;
-  gap: 24px;
+  flex-direction: column;
+  gap: 12px;
   background: rgba(196,154,82,0.08);
   border: 1px solid rgba(196,154,82,0.25);
   padding: 20px 24px;
 }
-.howmade-affiliate-left { flex: 1; }
 .howmade-affiliate h3 {
   color: var(--gold);
   font-size: 1.1rem;
   font-weight: 700;
-  margin-bottom: 8px;
 }
 .howmade-affiliate p {
   font-size: 1rem;
   color: rgba(255,255,255,0.55);
   line-height: 1.7;
+}
+.affiliate-btn-wide {
+  width: 100%;
+  justify-content: center;
 }
 .img-title { color: var(--gold); font-weight: 700; }
 .img-desc { font-size: 0.96rem; }
@@ -1021,6 +1023,10 @@ html, body {
   .howmade-imgs-row { grid-template-columns: 1fr 1fr; }
   .img-title { font-size: 0.9rem; }
   .img-desc { font-size: 0.75rem; line-height: 1.5; }
+  .howmade-affiliate { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .howmade-affiliate h3 { font-size: 1rem; }
+  .howmade-affiliate p { font-size: 0.9rem; }
+  .howmade-affiliate .affiliate-btn { width: 100%; justify-content: center; }
   .contact-content { grid-template-columns: 1fr; gap: 32px; }
   .contact-right { border-left: none; padding-left: 0; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 28px; }
   .contact-left h2 { font-size: 2.5rem; }
@@ -1255,12 +1261,10 @@ html, body {
         </div>
       </div>
       <div class="howmade-affiliate">
-        <div class="howmade-affiliate-left">
-          <h3>🎙️ Typeless — 音声入力でノーコード制作</h3>
-          <p>日本語に強いAI音声認識で、話すスピードでテキスト入力が完了。Claude Code・Gemini と組み合わせることでプログラミング知識なしでも本格的なサイト制作が可能です。</p>
-          <p class="affiliate-note">※ アフィリエイトリンク</p>
-        </div>
-        <a href="https://www.typeless.com?via=koji-satake" target="_blank" class="affiliate-btn">Try Typeless →</a>
+        <h3>🎙️ Typeless — 音声入力でノーコード制作</h3>
+        <a href="https://www.typeless.com?via=koji-satake" target="_blank" class="affiliate-btn affiliate-btn-wide">Try Typeless →</a>
+        <p>日本語に強いAI音声認識で、話すスピードでテキスト入力が完了。Claude Code・Gemini と組み合わせることでプログラミング知識なしでも本格的なサイト制作が可能です。</p>
+        <p class="affiliate-note">※ アフィリエイトリンク</p>
       </div>
     </div>
     <button class="back-to-top" onclick="goTo(0)">Back to Top</button>
