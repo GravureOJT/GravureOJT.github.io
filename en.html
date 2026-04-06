@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Koji Satake | Gravure Cylinder Platemaking Consultant</title>
+<meta name="description" content="Koji Satake (GravureOJT) is a specialist consultant in gravure cylinder platemaking. Offering quality improvement, process optimization, technical advisory, and market entry support.">
+<meta name="keywords" content="gravure platemaking,cylinder engraving,gravure printing,platemaking consultant,quality improvement,Koji Satake,GravureOJT">
+<meta name="author" content="Koji Satake">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://gojt.work/en.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://gojt.work/en.html">
+<meta property="og:title" content="Koji Satake | Gravure Cylinder Platemaking Consultant">
+<meta property="og:description" content="Specialist consultant in gravure cylinder platemaking. Quality improvement, process optimization, technical advisory, and market entry support.">
+<meta property="og:image" content="https://gojt.work/photo.jpg">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="GravureOJT">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Koji Satake | Gravure Cylinder Platemaking Consultant">
+<meta name="twitter:description" content="Specialist consultant in gravure cylinder platemaking. Quality improvement, process optimization, technical advisory, and market entry support.">
+<meta name="twitter:image" content="https://gojt.work/photo.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Koji Satake",
+  "alternateName": "GravureOJT",
+  "url": "https://gojt.work/en.html",
+  "image": "https://gojt.work/photo.jpg",
+  "jobTitle": "Gravure Cylinder Platemaking Consultant",
+  "description": "Specialist consultant in gravure cylinder platemaking. Quality improvement, process optimization, technical advisory, and market entry support.",
+  "email": "k-satake@gojt.work",
+  "sameAs": ["https://gojt.work/"]
+}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink: #0a0a0a;
+  --paper: #f2ede4;
+  --gold: #c49a52;
+  --gray: #5a5a5a;
+}
+
+html, body {
+  width: 100%; height: 100%;
+  overflow: hidden;
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+#slider {
+  display: flex;
+  width: 600%;
+  height: 100vh;
+  transition: transform 0.75s cubic-bezier(0.77, 0, 0.175, 1);
+}
+.slide {
+  width: calc(100% / 6);
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+#nav-dots {
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 200;
+}
+.dot {
+  height: 4px;
+  width: 20px;
+  border-radius: 2px;
+  background: rgba(255,255,255,0.3);
+  cursor: pointer;
+  transition: width 0.3s, background 0.3s;
+}
+.dot.active { width: 40px; background: var(--gold); }
+.dot.dark { background: rgba(0,0,0,0.2); }
+.dot.dark.active { background: var(--gold); }
+
+#slide-counter {
+  position: fixed;
+  bottom: 28px;
+  right: 48px;
+  z-index: 200;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.35);
+  font-weight: 700;
+}
+#slide-counter.dark { color: rgba(0,0,0,0.25); }
+
+.arrow {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 200;
+  width: 56px; height: 56px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+.arrow:hover { opacity: 1; }
+#arrow-prev { left: 20px; }
+#arrow-next { right: 20px; }
+.arrow svg { width: 28px; height: 28px; }
+
+/* LANG BUTTON */
+#lang-btn {
+  position: fixed;
+  top: 24px;
+  left: 24px;
+  z-index: 300;
+  color: #fff;
+  background: rgba(196,154,82,0.2);
+  border: 1px solid rgba(196,154,82,0.5);
+  padding: 6px 16px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+#lang-btn:hover { background: var(--gold); color: #fff; }
+#lang-btn.dark-page {
+  color: var(--ink);
+  border-color: rgba(196,154,82,0.5);
+  background: rgba(196,154,82,0.1);
+}
+
+/* SITE LOGO */
+#site-logo {
+  position: fixed;
+  top: 24px;
+  right: 36px;
+  z-index: 300;
+  background: transparent;
+  border-radius: 6px;
+  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+}
+#site-logo img {
+  height: 108px;
+  width: auto;
+  display: block;
+}
+
+/* HERO */
+.slide-hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 80px 100px;
+  text-align: center;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("Gemini_Generated_Image_%2001.png");
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.04);
+  transition: transform 8s ease;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(5,5,5,0.75) 0%, rgba(5,5,5,0.55) 50%, rgba(5,5,5,0.8) 100%);
+}
+.hero-content { position: relative; z-index: 2; }
+.hero-tag {
+  font-size: 0.864rem;
+  font-weight: 700;
+  letter-spacing: 0.4em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+.hero-tag::before {
+  content: "";
+  display: block;
+  width: 40px; height: 2px;
+  background: var(--gold);
+}
+.hero-name {
+  font-size: clamp(4rem, 9vw, 9rem);
+  font-weight: 900;
+  color: #fff;
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+}
+.hero-name span {
+  display: block;
+  font-size: clamp(1.8rem, 3.5vw, 3.5rem);
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  color: rgba(255,255,255,0.55);
+  margin-top: 12px;
+}
+.hero-lead {
+  font-size: clamp(1.1rem, 2.2vw, 1.8rem);
+  color: #fff;
+  line-height: 1.9;
+  max-width: 760px;
+  margin-bottom: 48px;
+  font-weight: 400;
+}
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #fff;
+  cursor: pointer;
+  background: none; border: none;
+  padding: 0;
+  font-family: inherit;
+  transition: gap 0.3s;
+}
+.hero-cta:hover { gap: 28px; }
+.hero-cta::after {
+  content: "";
+  display: block;
+  width: 60px; height: 1px;
+  background: var(--gold);
+}
+.hero-tool-strip {
+  position: absolute;
+  bottom: 120px;
+  left: 80px;
+  right: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  z-index: 2;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  padding-top: 20px;
+  cursor: pointer;
+  text-align: center;
+}
+.hero-tool-strip .tool-badges-row { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+.hero-tool-strip .tool-badge { color: #fff; background: rgba(196,154,82,0.12); }
+.hero-tool-strip:hover .tool-badge { background: rgba(196,154,82,0.25); }
+.hero-tool-strip .tool-strip-more { color: var(--gold); font-size: 1.54rem; width: 100%; text-align: center; }
+.tool-strip-hint {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.7);
+  letter-spacing: 0.1em;
+  text-align: center;
+}
+.tool-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ink);
+  background: rgba(196,154,82,0.1);
+  border: 1px solid rgba(196,154,82,0.35);
+  padding: 5px 14px;
+  letter-spacing: 0.05em;
+  transition: background 0.2s;
+}
+
+/* PROFILE */
+.slide-profile {
+  background: var(--paper);
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  align-items: center;
+  padding: 80px 80px;
+  gap: 64px;
+}
+.section-label {
+  font-size: 1.36rem;
+  font-weight: 700;
+  letter-spacing: 0.4em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.section-label::before {
+  content: "";
+  display: block;
+  width: 40px; height: 2px;
+  background: var(--gold);
+}
+.profile-text h2 {
+  font-size: clamp(2.4rem, 4vw, 4rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 28px;
+}
+.profile-text p {
+  font-size: 1.4rem;
+  color: var(--gray);
+  line-height: 2.1;
+  margin-bottom: 36px;
+  max-width: 680px;
+}
+.profile-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 32px;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  padding-top: 28px;
+}
+.meta-item dt {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #bbb;
+  margin-bottom: 4px;
+}
+.meta-item dd {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+.profile-photo-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.profile-photo {
+  width: 260px;
+  height: 320px;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 2px;
+  filter: sepia(10%) contrast(1.04);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.18);
+}
+.photo-caption {
+  font-size: 2.1rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: #bbb;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* SKILLS */
+.slide-skills {
+  background: var(--ink);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 80px;
+  position: relative;
+  overflow: hidden;
+}
+.slide-skills::after {
+  content: "SKILLS";
+  position: absolute;
+  bottom: -40px; right: -20px;
+  font-size: 20vw;
+  font-weight: 900;
+  color: rgba(255,255,255,0.025);
+  pointer-events: none;
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+.slide-skills .section-label { color: var(--gold); }
+.slide-skills .section-label::before { background: var(--gold); }
+.slide-skills h2 {
+  font-size: clamp(2.2rem, 3.5vw, 3.5rem);
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -0.02em;
+  margin-bottom: 40px;
+}
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,0.06);
+  margin-bottom: 24px;
+}
+.skill-item {
+  background: var(--ink);
+  padding: 32px 28px;
+  transition: background 0.3s;
+}
+.skill-item:hover { background: #161616; }
+@keyframes numBlink {
+  0%   { color: var(--gold); text-shadow: none; }
+  6%   { color: #fff; text-shadow: 0 0 28px rgba(255,255,255,0.95); }
+  12%  { color: var(--gold); text-shadow: none; }
+  18%  { color: #fff; text-shadow: 0 0 28px rgba(255,255,255,0.95); }
+  24%  { color: var(--gold); text-shadow: none; }
+  100% { color: var(--gold); text-shadow: none; }
+}
+.skill-num {
+  font-size: 2.4rem;
+  font-weight: 900;
+  color: var(--gold);
+  letter-spacing: -0.03em;
+  margin-bottom: 14px;
+  display: block;
+  line-height: 1;
+}
+.skill-item:nth-child(1) .skill-num { animation: numBlink 20s 0s infinite; }
+.skill-item:nth-child(2) .skill-num { animation: numBlink 20s 5s infinite; }
+.skill-item:nth-child(3) .skill-num { animation: numBlink 20s 10s infinite; }
+.skill-item:nth-child(4) .skill-num { animation: numBlink 20s 15s infinite; }
+.skill-item h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+.skill-item p {
+  font-size: 1.64rem;
+  color: rgba(255,255,255,0.38);
+  line-height: 1.8;
+}
+.biz-strip {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  border: 1px solid rgba(196,154,82,0.35);
+  padding: 22px 28px;
+}
+.biz-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+.biz-strip h3 {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--gold);
+  white-space: normal;
+  line-height: 1.2;
+  animation: numBlink 3.5s 0s infinite;
+}
+.biz-strip p {
+  font-size: 1.64rem;
+  color: rgba(255,255,255,0.38);
+  line-height: 1.75;
+}
+
+/* PATENT */
+.slide-patent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.patent-left {
+  background: #111;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 52px 52px;
+  position: relative;
+  overflow: hidden;
+}
+.patent-left::after {
+  content: "PAT.";
+  position: absolute;
+  bottom: -20px; right: -10px;
+  font-size: 14vw;
+  font-weight: 900;
+  color: rgba(255,255,255,0.03);
+  pointer-events: none;
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+.patent-left .section-label { color: var(--gold); font-size: 1.36rem; }
+.patent-left .section-label::before { background: var(--gold); }
+.patent-left h2 {
+  font-size: clamp(2.4rem, 3.5vw, 3.8rem);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+.free-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(74,124,89,0.2);
+  border: 1px solid rgba(74,124,89,0.6);
+  color: #7ec99a;
+  font-size: 1.44rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  padding: 7px 18px;
+  border-radius: 2px;
+  margin-bottom: 28px;
+}
+.patent-left p {
+  font-size: 1.4rem;
+  color: rgba(255,255,255,0.42);
+  line-height: 1.9;
+}
+.patent-right {
+  background: var(--paper);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 64px;
+}
+.patent-right dt {
+  font-size: 1.24rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-top: 28px;
+  margin-bottom: 6px;
+}
+.patent-right dt:first-child { margin-top: 0; }
+.patent-right dd {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.7;
+}
+.patent-note {
+  margin-top: 32px;
+  padding: 18px 22px;
+  background: #eef5f0;
+  border-left: 4px solid #4a7c59;
+  font-size: 1.7rem;
+  color: #3a6b47;
+  line-height: 1.8;
+  font-weight: 400;
+}
+
+/* CONTACT */
+.slide-contact {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contact-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("Gemini_Generated_Image_end.png");
+  background-size: cover;
+  background-position: center;
+}
+.contact-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(5,5,5,0.85) 0%, rgba(5,5,5,0.7) 100%);
+}
+.contact-content {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  width: 100%;
+  padding: 80px;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+.contact-left .section-label { color: var(--gold); font-size: 1.36rem; }
+.contact-left .section-label::before { background: var(--gold); }
+.contact-left h2 {
+  font-size: clamp(2.8rem, 4.5vw, 5rem);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin-bottom: 24px;
+}
+.contact-left p {
+  font-size: 1.9rem;
+  color: rgba(255,255,255,0.45);
+  line-height: 2.1;
+  margin-bottom: 32px;
+}
+.contact-email-link {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--gold);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  letter-spacing: 0.05em;
+}
+.contact-email-link::before {
+  content: "";
+  display: block;
+  width: 40px; height: 2px;
+  background: var(--gold);
+}
+.contact-right {
+  border-left: 1px solid rgba(255,255,255,0.1);
+  padding-left: 80px;
+}
+.contact-info {
+  margin-top: 28px;
+  border-top: 1px solid rgba(255,255,255,0.12);
+  padding-top: 24px;
+}
+.contact-info p {
+  font-size: 1.65rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.9;
+  margin-bottom: 8px;
+}
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  background: rgba(255,255,255,0.08);
+  border: none;
+  border-bottom: 2px solid rgba(255,255,255,0.5);
+  color: #fff;
+  padding: 16px 12px;
+  font-family: inherit;
+  font-size: 2.1rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  outline: none;
+  transition: border-color 0.3s, background 0.3s;
+  border-radius: 2px 2px 0 0;
+}
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: rgba(255,255,255,0.7);
+  font-size: 2rem;
+  font-weight: 400;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-bottom-color: var(--gold);
+  background: rgba(255,255,255,0.13);
+}
+.contact-form textarea { height: 110px; resize: none; }
+.contact-form button {
+  background: var(--gold);
+  border: none;
+  color: var(--ink);
+  padding: 22px 40px;
+  font-family: inherit;
+  font-size: 1.7rem;
+  font-weight: 900;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: opacity 0.3s;
+  width: 100%;
+}
+.contact-form button:hover { opacity: 0.85; }
+.form-msg {
+  margin-top: 14px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--gold);
+  display: none;
+}
+
+/* HOW MADE */
+.slide-howmade {
+  background: var(--ink);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 60px 80px;
+  position: relative;
+  overflow-y: auto;
+}
+.slide-howmade::after {
+  content: "TOOLS";
+  position: absolute;
+  bottom: -40px; right: -20px;
+  font-size: 20vw;
+  font-weight: 900;
+  color: rgba(255,255,255,0.025);
+  pointer-events: none;
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+.slide-howmade .section-label { color: var(--gold); }
+.slide-howmade .section-label::before { background: var(--gold); }
+.slide-howmade h2 {
+  font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -0.02em;
+  margin-bottom: 32px;
+}
+.howmade-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  margin-bottom: 24px;
+}
+.howmade-step {
+  background: var(--ink);
+  padding: 28px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.howmade-step:hover { background: #161616; }
+.step-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.step-num {
+  font-size: 2.4rem;
+  font-weight: 900;
+  color: var(--gold);
+  line-height: 1;
+}
+.step-icon { font-size: 1.8rem; line-height: 1; }
+.howmade-step h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.4;
+}
+.howmade-step p {
+  font-size: 1.4rem;
+  color: rgba(255,255,255,0.38);
+  line-height: 1.8;
+}
+.howmade-images {
+  background: var(--ink);
+  padding: 28px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.howmade-imgs-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.howmade-img-wrap {
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.howmade-img-wrap img {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+  filter: sepia(10%) contrast(1.04);
+}
+.howmade-img-label {
+  padding: 6px 10px;
+  font-size: 1.2rem;
+  color: #fff;
+  font-weight: 400;
+}
+.img-title { color: var(--gold); font-weight: 700; }
+.img-desc { font-size: 0.96rem; }
+.howmade-affiliate {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: rgba(196,154,82,0.08);
+  border: 1px solid rgba(196,154,82,0.25);
+  padding: 20px 24px;
+}
+.howmade-affiliate h3 {
+  color: var(--gold);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+.howmade-affiliate p {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.7;
+}
+.affiliate-btn {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 1.1rem;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 2px solid var(--gold);
+  padding: 12px 28px;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+  animation: numBlink 3.5s 0s infinite;
+}
+.affiliate-btn-wide { width: 100%; justify-content: center; }
+.affiliate-btn:hover { background: var(--gold); color: #fff; }
+.affiliate-note { font-size: 1rem; color: rgba(255,255,255,0.22); margin-top: 6px; letter-spacing: 0.05em; }
+.back-to-top {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 1.56rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #fff;
+  cursor: pointer;
+  background: none;
+  border: 2px solid rgba(255,255,255,0.6);
+  padding: 18px 36px;
+  font-family: inherit;
+  margin-top: 24px;
+  align-self: center;
+  transition: border-color 0.2s;
+}
+.back-to-top:hover { border-color: var(--gold); color: var(--gold); }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .slide-hero { padding: 80px 32px 100px; }
+  .slide-profile { grid-template-columns: 1fr; padding: 80px 32px; }
+  .section-label { font-size: 0.85rem; letter-spacing: 0.2em; }
+  .profile-text h2 { font-size: 1.8rem; }
+  .profile-text p { font-size: 0.95rem; }
+  .slide-skills { padding: 80px 32px; }
+  .howmade-body { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px) {
+  #site-logo { padding: 6px 10px; }
+  #site-logo img { height: 40px; }
+  .slide-hero { padding: 60px 24px 160px; justify-content: center; }
+  .hero-tag { font-size: 0.7rem; letter-spacing: 0.12em; flex-direction: column; gap: 4px; margin-bottom: 16px; }
+  .hero-tag::before { width: 24px; }
+  .hero-name { font-size: 2.6rem; margin-bottom: 12px; }
+  .hero-name span { font-size: 1rem; }
+  .hero-lead { font-size: 0.85rem; margin-bottom: 16px; line-height: 1.7; }
+  .hero-cta { padding: 10px 24px; font-size: 0.8rem; }
+  .hero-tool-strip { position: absolute; bottom: 60px; left: 24px; right: 24px; }
+  .hero-tool-strip .tool-strip-more { font-size: 1.1rem; }
+  .tool-strip-hint { font-size: 0.75rem; }
+  .tool-badge { font-size: 0.75rem; padding: 4px 10px; }
+  .slide-profile { grid-template-columns: 1fr; padding: 70px 24px; overflow-y: auto; }
+  .profile-photo-wrap { display: flex; justify-content: center; margin-top: 32px; order: 999; }
+  .profile-photo { width: 140px; height: 140px; }
+  .section-label { font-size: 0.85rem; letter-spacing: 0.2em; }
+  .profile-text h2 { font-size: 1.8rem; }
+  .profile-text p { font-size: 0.95rem; }
+  .meta-item dt { font-size: 0.7rem; }
+  .meta-item dd { font-size: 1rem; }
+  .skills-grid { grid-template-columns: 1fr 1fr; }
+  .slide-skills { padding: 60px 24px; overflow-y: auto; }
+  .slide-skills h2 { font-size: 1.6rem; margin-bottom: 20px; }
+  .skill-item { padding: 20px 16px; }
+  .skill-item h3 { font-size: 1rem; }
+  .skill-item p { font-size: 0.82rem; }
+  .biz-strip { flex-direction: column; align-items: flex-start; gap: 8px; padding: 16px 20px; }
+  .biz-strip h3 { font-size: 1.1rem; }
+  .biz-strip p { font-size: 0.82rem; }
+  .slide-patent { grid-template-columns: 1fr; overflow-y: auto; }
+  .patent-left { padding: 40px 24px; }
+  .patent-left h2 { font-size: 2rem; }
+  .patent-right { padding: 40px 24px; }
+  .patent-right dd { font-size: 1.1rem; }
+  .patent-note { font-size: 1rem; }
+  .slide-contact { padding: 70px 24px 80px; }
+  .contact-content { grid-template-columns: 1fr; gap: 32px; padding: 60px 24px; }
+  .contact-right { border-left: none; padding-left: 0; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 28px; }
+  .contact-left h2 { font-size: 2.5rem; }
+  .slide-howmade { padding: 70px 24px; overflow-y: auto; }
+  .howmade-body { grid-template-columns: 1fr; }
+  .howmade-step h3 { font-size: 1.2rem; }
+  .howmade-step p { font-size: 1rem; }
+  .howmade-imgs-row { grid-template-columns: 1fr 1fr; }
+  .img-title { font-size: 0.9rem; }
+  .img-desc { font-size: 0.75rem; line-height: 1.5; }
+  .howmade-affiliate { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .howmade-affiliate h3 { font-size: 1rem; }
+  .howmade-affiliate p { font-size: 0.9rem; }
+  .howmade-affiliate .affiliate-btn { width: 100%; justify-content: center; }
+  #nav-dots { bottom: 16px; }
+  #slide-counter { bottom: 12px; right: 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Lang Button -->
+<a href="index.html" id="lang-btn">日本語</a>
+
+<!-- Site Logo -->
+<div id="site-logo">
+  <img src="gojtロゴ.png" alt="GravureOJT">
+</div>
+
+<div id="slider">
+
+  <!-- SLIDE 01: HERO -->
+  <div class="slide slide-hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-tag">Gravure Cylinder<br>Making Consultant</p>
+      <h1 class="hero-name">
+        GravureOJT
+        <span>Gravure OJT</span>
+      </h1>
+      <p class="hero-lead">
+        A freelance consultant with decades of experience in the gravure platemaking industry.
+        As an independent third party, I provide quality improvement,
+        process optimization, and new market entry support.
+      </p>
+      <button class="hero-cta" onclick="goTo(1)">PROFILE</button>
+    </div>
+    <div class="hero-tool-strip" onclick="goTo(5)">
+      <span class="tool-strip-more">Built with No-Code Tools</span>
+      <div class="tool-badges-row">
+        <span class="tool-badge">🎙️ Typeless</span>
+        <span class="tool-badge">🤖 Claude Code</span>
+        <span class="tool-badge">🎨 Gemini</span>
+      </div>
+      <span class="tool-strip-hint">Tap the blinking text</span>
+    </div>
+  </div>
+
+  <!-- SLIDE 02: PROFILE -->
+  <div class="slide slide-profile">
+    <div class="profile-text">
+      <p class="section-label">Profile</p>
+      <h2>Specialist Consultant<br>in Gravure Platemaking</h2>
+      <p>
+        Specializing in quality improvement, cost optimization, and new market entry support for platemaking processes.<br>
+        As an independent third party from equipment manufacturers,
+        I provide end-to-end support from identifying issues to implementing lasting improvements.
+      </p>
+      <div class="profile-meta">
+        <dl class="meta-item">
+          <dt>Name</dt>
+          <dd>Koji Satake</dd>
+        </dl>
+        <dl class="meta-item">
+          <dt>Role</dt>
+          <dd>Gravure Platemaking Consultant</dd>
+        </dl>
+        <dl class="meta-item">
+          <dt>Patent</dt>
+          <dd>Patent No. 3144019 (Expired)</dd>
+        </dl>
+        <dl class="meta-item">
+          <dt>Email</dt>
+          <dd>k-satake@gojt.work</dd>
+        </dl>
+        <dl class="meta-item">
+          <dt>Tel</dt>
+          <dd>+81-90-9146-1516</dd>
+        </dl>
+        <dl class="meta-item" style="grid-column: 1 / -1;">
+          <dt>Address</dt>
+          <dd>3-15-8-603 Higashimichinobe, Kamagaya, Chiba 273-0115, Japan</dd>
+        </dl>
+      </div>
+    </div>
+    <div class="profile-photo-wrap">
+      <img class="profile-photo" src="photo.jpg" alt="Koji Satake">
+      <p class="photo-caption">Koji Satake</p>
+    </div>
+  </div>
+
+  <!-- SLIDE 03: SKILLS -->
+  <div class="slide slide-skills">
+    <p class="section-label">Skills &amp; Services</p>
+    <h2>Expertise &amp; Services</h2>
+    <div class="skills-grid">
+      <div class="skill-item">
+        <span class="skill-num">01</span>
+        <h3>Platemaking Quality Improvement</h3>
+        <p>Enhancing color reproduction and halftone quality, reducing defect rates. Identifying root causes through data-driven analysis.</p>
+      </div>
+      <div class="skill-item">
+        <span class="skill-num">02</span>
+        <h3>Process Optimization</h3>
+        <p>Bottleneck analysis, cost reduction strategies, and productivity improvement planning and implementation support.</p>
+      </div>
+      <div class="skill-item">
+        <span class="skill-num">03</span>
+        <h3>Technical Advisory &amp; Training</h3>
+        <p>Training junior engineers, designing and delivering in-house technical training programs.</p>
+      </div>
+      <div class="skill-item">
+        <span class="skill-num">04</span>
+        <h3>New Market Entry Support</h3>
+        <p>Market research, equipment selection, and startup support for companies entering the gravure platemaking industry.</p>
+      </div>
+    </div>
+    <div class="biz-strip">
+      <div class="biz-dot"></div>
+      <h3>Filter Media Cleaning Service</h3>
+      <p>Specialized cleaning of filter media for copper plating grinding filtration systems.<br>Reduces filter aid costs and operator workload. Contact us for details.</p>
+    </div>
+  </div>
+
+  <!-- SLIDE 04: PATENT -->
+  <div class="slide slide-patent">
+    <div class="patent-left">
+      <p class="section-label">Patent</p>
+      <h2>Patent Technology<br>Open to the Public</h2>
+      <span class="free-badge">&#10003; Expired — Free for Anyone to Use</span>
+      <p>
+        The patented technology I developed has expired and is now freely available for anyone to implement.
+        I hope it contributes to the advancement of the industry.
+        Implementation support is also available.
+      </p>
+    </div>
+    <div class="patent-right">
+      <dl>
+        <dt>Patent Number</dt>
+        <dd>Patent No. 3144019</dd>
+        <dt>Title of Invention</dt>
+        <dd>Screen Angle Auto-Conversion Method and<br>Screen Angle Auto-Conversion Device</dd>
+        <dt>Technical Benefits</dt>
+        <dd>Moiré Reduction / Improved Color Reproduction / Reduced Labor Hours</dd>
+        <dt>Rights Status</dt>
+        <dd>Expired. Now freely available for anyone to implement.</dd>
+      </dl>
+      <div class="patent-note">
+        Companies or individuals wishing to utilize this technology are welcome to contact us via the inquiry form.
+        We are happy to provide detailed explanations of the technical background and implementation methods.
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 05: CONTACT -->
+  <div class="slide slide-contact">
+    <div class="contact-bg"></div>
+    <div class="contact-overlay"></div>
+    <div class="contact-content">
+      <div class="contact-left">
+        <p class="section-label">Contact</p>
+        <h2>Get in<br>Touch</h2>
+        <p>
+          For consulting inquiries, filter media cleaning consultations,
+          or questions about patent technology — feel free to reach out.
+        </p>
+        <a class="contact-email-link" href="mailto:k-satake@gojt.work">
+          k-satake@gojt.work
+        </a>
+        <div class="contact-info">
+          <p>3-15-8-603 Higashimichinobe,<br>Kamagaya, Chiba 273-0115, Japan</p>
+          <p>TEL：+81-90-9146-1516</p>
+        </div>
+      </div>
+      <div class="contact-right">
+        <form class="contact-form" id="contactForm"
+              action="https://formspree.io/f/xpwzgvjl"
+              method="POST">
+          <input type="text" name="name" placeholder="Your Name *" required>
+          <input type="email" name="email" placeholder="Email Address *" required>
+          <input type="text" name="company" placeholder="Company (optional)">
+          <textarea name="message" placeholder="Your Message *" required></textarea>
+          <button type="submit">SEND MESSAGE</button>
+          <p class="form-msg" id="formMsg">Message sent. Thank you!</p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 06: HOW MADE -->
+  <div class="slide slide-howmade">
+    <p class="section-label">How This Site Was Made</p>
+    <h2>Built with No-Code Tools</h2>
+    <div class="howmade-body">
+      <div class="howmade-step">
+        <div class="step-header">
+          <span class="step-num">01</span>
+          <span class="step-icon">🎙️</span>
+        </div>
+        <h3>Voice Input with Typeless</h3>
+        <p>Describe your page idea by voice. No keyboard needed — ideas become text at speaking speed.</p>
+      </div>
+      <div class="howmade-step">
+        <div class="step-header">
+          <span class="step-num">02</span>
+          <span class="step-icon">🤖</span>
+        </div>
+        <h3>Code Generation with Claude Code</h3>
+        <p>Based on the voice input, Claude Code automatically generates HTML/CSS. Edits are made simply through conversation.</p>
+      </div>
+      <div class="howmade-step">
+        <div class="step-header">
+          <span class="step-num">03</span>
+          <span class="step-icon">🎨</span>
+        </div>
+        <h3>Image Generation with Gemini</h3>
+        <p>The visuals on this site were generated by Gemini. Just describe the image in words and original images are created.</p>
+      </div>
+      <div class="howmade-images">
+        <div class="howmade-imgs-row">
+          <div class="howmade-img-wrap">
+            <img src="Gemini_Generated_Image_%2001.png" alt="Generated Image 1">
+            <div class="howmade-img-label"><span class="img-title">Image 1</span><br><span class="img-desc">Created with a prompt imagining a copper-plated cylinder surface</span></div>
+          </div>
+          <div class="howmade-img-wrap">
+            <img src="Gemini_Generated_Image_end.png" alt="Generated Image 2">
+            <div class="howmade-img-label"><span class="img-title">Image 2</span><br><span class="img-desc">Created with a prompt imagining a chrome-plated cylinder surface</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="howmade-affiliate">
+        <h3>🎙️ Typeless — No-Code Creation via Voice Input</h3>
+        <a href="https://www.typeless.com?via=koji-satake" target="_blank" class="affiliate-btn affiliate-btn-wide">Try Typeless →</a>
+        <p>AI voice recognition optimized for natural speech. Combined with Claude Code and Gemini, anyone can build a professional website without any programming knowledge.</p>
+        <p class="affiliate-note">※ Affiliate link</p>
+      </div>
+    </div>
+    <button class="back-to-top" onclick="goTo(0)">Back to Top</button>
+  </div>
+
+</div><!-- /#slider -->
+
+<!-- Nav dots -->
+<div id="nav-dots">
+  <div class="dot active" onclick="goTo(0)"></div>
+  <div class="dot" onclick="goTo(1)"></div>
+  <div class="dot" onclick="goTo(2)"></div>
+  <div class="dot" onclick="goTo(3)"></div>
+  <div class="dot" onclick="goTo(4)"></div>
+  <div class="dot" onclick="goTo(5)"></div>
+</div>
+
+<!-- Counter -->
+<div id="slide-counter">01 / 06</div>
+
+<!-- Arrows -->
+<div class="arrow" id="arrow-prev" onclick="prev()">
+  <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5">
+    <polyline points="15 18 9 12 15 6"></polyline>
+  </svg>
+</div>
+<div class="arrow" id="arrow-next" onclick="next()">
+  <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5">
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </svg>
+</div>
+
+<script>
+let current = 0;
+const total = 6;
+const slider = document.getElementById('slider');
+const dots = document.querySelectorAll('.dot');
+const counter = document.getElementById('slide-counter');
+const LIGHT = [1, 3];
+
+function goTo(n) {
+  current = Math.max(0, Math.min(total - 1, n));
+  slider.style.transform = 'translateX(-' + (current * 100 / total).toFixed(6) + '%)';
+  dots.forEach((d, i) => {
+    d.classList.toggle('active', i === current);
+    d.classList.toggle('dark', LIGHT.includes(current));
+  });
+  counter.textContent = String(current + 1).padStart(2, '0') + ' / 0' + total;
+  counter.classList.toggle('dark', LIGHT.includes(current));
+  document.getElementById('arrow-prev').style.display = current === 0 ? 'none' : 'flex';
+  document.getElementById('arrow-next').style.display = current === total - 1 ? 'none' : 'flex';
+  const langBtn = document.getElementById('lang-btn');
+  if (langBtn) langBtn.className = LIGHT.includes(current) ? 'dark-page' : '';
+}
+
+function next() { goTo(current + 1); }
+function prev() { goTo(current - 1); }
+
+let startX = 0;
+document.addEventListener('touchstart', e => { startX = e.touches[0].clientX; });
+document.addEventListener('touchend', e => {
+  const dx = e.changedTouches[0].clientX - startX;
+  if (Math.abs(dx) > 40) dx < 0 ? next() : prev();
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight') next();
+  if (e.key === 'ArrowLeft') prev();
+});
+
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  fetch(this.action, {
+    method: 'POST',
+    body: new FormData(this),
+    headers: { 'Accept': 'application/json' }
+  }).then(r => {
+    if (r.ok) {
+      document.getElementById('formMsg').style.display = 'block';
+      this.reset();
+    }
+  });
+});
+
+goTo(0);
+</script>
+</body>
+</html>
