@@ -144,6 +144,35 @@ html, body {
   border-color: var(--gold);
 }
 
+/* ===== GARDEN BUTTON ===== */
+#garden-btn {
+  position: fixed;
+  top: 70px;
+  left: 20px;
+  z-index: 300;
+  color: #fff;
+  background: #4a7c59;
+  border: 2px solid #4a7c59;
+  padding: 8px 20px;
+  font-size: 0.85rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+#garden-btn:hover {
+  background: #fff;
+  color: #4a7c59;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+}
+#garden-btn.dark-page {
+  background: #4a7c59;
+  color: #fff;
+  border-color: #4a7c59;
+}
+
 /* SITE LOGO */
 #site-logo {
   position: fixed;
@@ -848,6 +877,21 @@ html, body {
   transition: border-color 0.2s;
 }
 .back-to-top:hover { border-color: var(--gold); color: var(--gold); }
+.garden-link-btn {
+  display: inline-block;
+  color: #a8d5b5;
+  border: 2px solid #4a7c59;
+  background: rgba(74,124,89,0.15);
+  padding: 14px 28px;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  border-radius: 4px;
+  margin-top: 20px;
+  transition: background 0.2s, color 0.2s;
+}
+.garden-link-btn:hover { background: #4a7c59; color: #fff; }
 
 /* RESPONSIVE */
 @media (max-width: 900px) {
@@ -922,6 +966,7 @@ html, body {
 
 <!-- Lang Button -->
 <a href="index.html" id="lang-btn">日本語</a>
+<a href="garden.html" id="garden-btn">🌿 Garden</a>
 
 <!-- Site Logo -->
 <div id="site-logo">
@@ -1147,6 +1192,7 @@ html, body {
         <p class="affiliate-note">※ Affiliate link</p>
       </div>
     </div>
+    <a href="garden.html" class="garden-link-btn">🌿 Satake Garden — Balcony Growing Diary</a>
     <button class="back-to-top" onclick="goTo(0)">Back to Top</button>
   </div>
 
