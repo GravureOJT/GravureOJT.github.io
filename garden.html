@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>佐竹の園芸 | Satake Garden</title>
+<meta name="description" content="マンションのベランダでシャインマスカットを栽培。植物観察の記録。Satake Garden — Growing Shine Muscat grapes on a balcony in Japan.">
+<meta property="og:title" content="佐竹の園芸 | Satake Garden">
+<meta property="og:description" content="マンションのベランダでシャインマスカットを栽培。植物観察の記録。">
+<meta property="og:image" content="https://gojt.work/grape01.jpg">
+<meta property="og:url" content="https://gojt.work/garden.html">
+<link rel="canonical" href="https://gojt.work/garden.html">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --green: #4a7c59;
+  --light-green: #a8d5b5;
+  --grape: #7b5ea7;
+  --cream: #f7f4ee;
+  --white: #ffffff;
+  --text: #2d2d2d;
+  --gray: #6b6b6b;
+  --gold: #c49a52;
+  --border: #ddd8cc;
+}
+
+body {
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  line-height: 1.8;
+}
+
+/* ===== HEADER ===== */
+header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: var(--white);
+  border-bottom: 3px solid var(--green);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.site-title {
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: var(--green);
+  line-height: 1.2;
+}
+.site-title span {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--gray);
+  letter-spacing: 0.05em;
+}
+
+.back-btn {
+  font-size: 0.8rem;
+  color: var(--gold);
+  text-decoration: none;
+  border: 2px solid var(--gold);
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-weight: 700;
+  transition: background 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+.back-btn:hover { background: var(--gold); color: #fff; }
+
+/* ===== HERO ===== */
+.hero {
+  margin-top: 64px;
+  height: 65vh;
+  min-height: 320px;
+  background: url('garden/grape01.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: flex-end;
+  padding: 40px 32px;
+  position: relative;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.1) 60%, transparent 100%);
+}
+.hero-text {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+}
+.hero-text h1 {
+  font-size: clamp(1.8rem, 5vw, 3.2rem);
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+.hero-text .hero-sub {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  margin-bottom: 4px;
+}
+.hero-text .hero-en {
+  font-size: 0.82rem;
+  opacity: 0.75;
+}
+
+/* ===== MAIN ===== */
+main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 48px 24px 80px;
+}
+
+/* ===== INTRO ===== */
+.intro-card {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 28px 32px;
+  border: 1px solid var(--border);
+  margin-bottom: 56px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.intro-card p { margin-bottom: 10px; }
+.intro-card p:last-child { margin-bottom: 0; }
+.intro-en {
+  color: var(--gray);
+  font-size: 0.88rem;
+  margin-top: 16px !important;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+/* ===== YEAR DIVIDER ===== */
+.year-divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 36px;
+}
+.year-divider h2 {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--green);
+  white-space: nowrap;
+}
+.year-divider::after {
+  content: '';
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(to right, var(--light-green), transparent);
+}
+
+/* ===== SECTION ===== */
+.section {
+  margin-bottom: 64px;
+}
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--green);
+  border-left: 4px solid var(--green);
+  padding-left: 16px;
+  margin-bottom: 28px;
+  line-height: 1.4;
+}
+.section-title span {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: var(--gray);
+  margin-top: 4px;
+}
+
+/* ===== STATUS CARD ===== */
+.status-card {
+  background: linear-gradient(135deg, #e8f5e9, #f1f8f3);
+  border: 1px solid var(--light-green);
+  border-radius: 12px;
+  padding: 24px 28px;
+  margin-bottom: 32px;
+}
+.status-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--green);
+  margin-bottom: 10px;
+}
+.status-card .en {
+  font-size: 0.85rem;
+  color: var(--gray);
+  margin-top: 8px;
+}
+
+/* ===== TIMELINE ===== */
+.timeline {
+  position: relative;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: 0; bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--light-green), rgba(168,213,181,0.2));
+}
+
+.entry {
+  position: relative;
+  padding-left: 60px;
+  margin-bottom: 52px;
+}
+.entry:last-child { margin-bottom: 0; }
+
+.entry::before {
+  content: '';
+  position: absolute;
+  left: 12px;
+  top: 4px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--green);
+  border: 3px solid var(--cream);
+  box-shadow: 0 0 0 2px var(--green);
+}
+
+.entry-date {
+  font-size: 0.78rem;
+  color: var(--gray);
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+
+.entry-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+.entry-title .en {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: var(--green);
+  margin-top: 4px;
+}
+
+/* ===== PHOTO GRID ===== */
+.photo-grid {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 16px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.photo-grid.cols-1 { grid-template-columns: 1fr; }
+.photo-grid.cols-2 { grid-template-columns: 1fr 1fr; }
+.photo-grid.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+
+.photo-grid img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  display: block;
+  border-radius: 8px;
+}
+.photo-grid img.wide { aspect-ratio: 4/3; }
+.photo-grid img.sq { aspect-ratio: 1/1; }
+
+/* ===== ENTRY TEXT ===== */
+.entry-text p { font-size: 0.95rem; line-height: 1.9; }
+.entry-text p + p { margin-top: 10px; }
+.entry-text .en {
+  color: var(--gray);
+  font-size: 0.85rem;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--border);
+}
+
+/* ===== LIST ===== */
+.entry-list {
+  margin: 10px 0;
+  padding-left: 20px;
+  font-size: 0.9rem;
+  line-height: 2;
+}
+
+/* ===== HIGHLIGHT ===== */
+.highlight {
+  background: rgba(123, 94, 167, 0.08);
+  border: 1px solid rgba(123, 94, 167, 0.3);
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin: 12px 0;
+}
+.highlight p {
+  font-size: 1rem;
+  color: var(--grape);
+  font-weight: 700;
+}
+
+/* ===== PLANTS GRID ===== */
+.plants-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.plant-card {
+  background: var(--white);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.plant-card img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  display: block;
+}
+.plant-card-body { padding: 14px 16px; }
+.plant-card h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--green);
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+.plant-card p { font-size: 0.85rem; color: var(--text); line-height: 1.7; }
+.plant-card .en { font-size: 0.78rem; color: var(--gray); margin-top: 6px; }
+
+/* ===== SYSTEM GRID ===== */
+.system-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.system-card {
+  background: var(--white);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.system-card img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  display: block;
+}
+.system-card-body { padding: 16px 18px; }
+.system-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+.system-card p { font-size: 0.88rem; color: var(--gray); line-height: 1.7; }
+.system-card .en { font-size: 0.8rem; color: var(--gray); margin-top: 8px; border-top: 1px dashed var(--border); padding-top: 8px; }
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--green);
+  color: #fff;
+  text-align: center;
+  padding: 36px 24px;
+}
+footer .footer-title {
+  font-size: 1.1rem;
+  font-weight: 900;
+  margin-bottom: 12px;
+}
+footer a {
+  color: var(--gold);
+  text-decoration: none;
+  font-weight: 700;
+}
+footer a:hover { text-decoration: underline; }
+footer .footer-copy {
+  margin-top: 16px;
+  font-size: 0.78rem;
+  opacity: 0.6;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 640px) {
+  header { padding: 10px 16px; }
+  .site-title { font-size: 0.95rem; }
+  .back-btn { font-size: 0.75rem; padding: 5px 10px; }
+  .hero { height: 50vh; padding: 24px 20px; }
+  main { padding: 32px 16px 60px; }
+  .intro-card { padding: 20px 18px; }
+  .timeline::before { left: 14px; }
+  .entry { padding-left: 44px; }
+  .entry::before { left: 6px; }
+  .photo-grid.cols-3 { grid-template-columns: 1fr 1fr; }
+  .plants-grid { grid-template-columns: 1fr; }
+  .system-grid { grid-template-columns: 1fr 1fr; }
+  .year-divider h2 { font-size: 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="site-title">
+    佐竹の園芸
+    <span>Satake Garden</span>
+  </div>
+  <a href="index.html" class="back-btn">← ビジネスサイト</a>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-text">
+    <h1>佐竹の園芸<br>Satake Garden</h1>
+    <p class="hero-sub">マンションのベランダから。シャインマスカットと植物の記録。</p>
+    <p class="hero-en">Growing Shine Muscat grapes &amp; plants on a balcony in Japan.</p>
+  </div>
+</div>
+
+<main>
+
+  <!-- INTRO -->
+  <div class="intro-card">
+    <p>千葉県鎌ケ谷市のマンション高層階のベランダで、シャインマスカットの栽培と植物鑑賞を楽しんでいます。</p>
+    <p>2022年から栽培を始め、試行錯誤を繰り返しながら毎年記録を続けています。失敗も含めて、すべてが学びです。ジベレリン処理・自動灌水システムの自作など、本格的な栽培に挑んでいます。</p>
+    <p class="intro-en">I grow Shine Muscat grapes and enjoy plants on the balcony of my high-rise apartment in Kamagaya, Chiba, Japan. Started in 2022, and documenting everything — including failures. This diary covers gibberellin treatment, DIY auto-irrigation, and the full journey from budbreak to harvest.</p>
+  </div>
+
+  <!-- 2026年 -->
+  <section class="section">
+    <div class="year-divider"><h2>2026年</h2></div>
+
+    <div class="status-card">
+      <h3>🍇 現在のブドウの状態 / Current Status</h3>
+      <p>3年目の栽培で、2年目の剪定が失敗したため、今年はすべての枝を切り落としてリスタートしました。現在は新芽が出るのを待っています。</p>
+      <p class="en">After a pruning mistake in year 2, I made the bold decision to cut everything back completely and start fresh. Now waiting patiently for new buds to emerge.</p>
+    </div>
+
+    <div class="timeline">
+      <div class="entry">
+        <div class="entry-date">2026年4月</div>
+        <div class="entry-title">
+          3年目の決断 — 全部切ってリスタート
+          <span class="en">Year 3 Decision — Cut everything back, start over</span>
+        </div>
+        <div class="entry-text">
+          <p>2年目の剪定を誤り、樹形が乱れてしまいました。迷った末に、今年は思い切って全部の枝を切り落とし、新芽が出るのを待つことにしました。</p>
+          <p>失敗を恐れず、また挑戦します。新芽が出たらここに記録します。</p>
+          <p class="en">A pruning mistake in year 2 threw off the vine's structure. After much deliberation, I decided to cut everything back completely and wait for new growth. Not afraid of failure — trying again. Will document new growth here as it appears.</p>
+        </div>
+      </div>
+
+      <!-- 2026年 ブドウの木 -->
+      <div class="entry">
+        <div class="entry-date">2026年4月</div>
+        <div class="entry-title">
+          2品種のブドウの木 — 現在の様子
+          <span class="en">Two Grape Varieties — Current State</span>
+        </div>
+        <div class="photo-grid cols-2">
+          <img src="garden/grape19.jpg" alt="2026年 シャインマスカット">
+          <img src="garden/grape20.jpg" alt="2026年 ニューナイヤガラ">
+        </div>
+        <div class="entry-text">
+          <p>現在育てているのは2品種。シャインマスカットとニューナイヤガラです。どちらも全部の枝を切り落とした状態で、新芽が出るのを待っています。</p>
+          <p class="en">Currently growing two varieties: Shine Muscat and New Niagara. Both have been cut back completely, and I'm waiting for new buds to emerge.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 2024年の記録 -->
+  <section class="section">
+    <div class="year-divider"><h2>2024年の記録</h2></div>
+    <div class="timeline">
+
+      <!-- 萌芽 -->
+      <div class="entry">
+        <div class="entry-date">2024年 春 ― 萌芽</div>
+        <div class="entry-title">
+          冬眠から目覚める — 萌芽
+          <span class="en">Waking from Dormancy — Budbreak</span>
+        </div>
+        <div class="photo-grid cols-1">
+          <img src="garden/grape18.jpg" alt="萌芽" class="wide">
+        </div>
+        <div class="entry-text">
+          <p>剪定後の枝から小さな新芽が顔を出しました。この瞬間が1年で一番嬉しい瞬間です。緑のクリップで枝を棚に固定し、準備は万端。</p>
+          <p class="en">Tiny buds emerging from the pruned canes. This is the most exciting moment of the year. Green clips hold the canes to the trellis — everything is ready.</p>
+        </div>
+      </div>
+
+      <!-- 展葉 -->
+      <div class="entry">
+        <div class="entry-date">2024年 春 ― 展葉</div>
+        <div class="entry-title">
+          展葉 3〜4枚の頃
+          <span class="en">3–4 Leaves Unfolded</span>
+        </div>
+        <div class="photo-grid cols-1">
+          <img src="garden/grape17.jpg" alt="展葉" class="wide">
+        </div>
+        <div class="entry-text">
+          <p>葉が3〜4枚に増えてきました。背景には街並みと緑の山が見えます。マンション高層階ならではの眺めです。</p>
+          <p class="en">Leaves expanding to 3–4. The city and green hills visible in the background — a reminder that this is high-rise balcony gardening.</p>
+        </div>
+      </div>
+
+      <!-- 開花 -->
+      <div class="entry">
+        <div class="entry-date">2024年 春 ― 開花</div>
+        <div class="entry-title">
+          開花が始まった
+          <span class="en">Flowering Begins</span>
+        </div>
+        <div class="photo-grid cols-2">
+          <img src="garden/grape16.jpg" alt="開花・ベランダ全体">
+          <img src="garden/grape13.jpg" alt="花アップ" class="wide">
+        </div>
+        <div class="entry-text">
+          <p>白い小さな花が咲き始めました。ここからジベレリン処理のタイミングを見極めます。花穂の状態を毎日確認する、緊張の時期です。</p>
+          <p class="en">Tiny white flowers begin to open. Now it's time to watch carefully every day for the right moment to apply gibberellin treatment. A tense but exciting period.</p>
+        </div>
+      </div>
+
+      <!-- 花切り・つぼみ -->
+      <div class="entry">
+        <div class="entry-date">2024年 春 ― 花切り後</div>
+        <div class="entry-title">
+          花切りを終えて、つぼみの段階
+          <span class="en">After Flower Trimming — Bud Stage</span>
+        </div>
+        <div class="photo-grid cols-1">
+          <img src="garden/grape15.jpg" alt="つぼみ" class="wide">
+        </div>
+        <div class="entry-text">
+          <p>花穂の先端を切りそろえる「花切り」を行いました。房の形を整えるための大切な作業です。</p>
+          <p class="en">Performed "flower trimming" — cutting the tip of each flower cluster to shape the future bunch. An important step for achieving a well-formed bunch of grapes.</p>
+        </div>
+      </div>
+
+      <!-- ジベレリン処理 -->
+      <div class="entry">
+        <div class="entry-date">2024年5月19日 ― ジベレリン処理 1回目</div>
+        <div class="entry-title">
+          種なし（無核化）のためのジベレリン処理
+          <span class="en">Gibberellin Treatment for Seedless Grapes</span>
+        </div>
+        <div class="photo-grid cols-1">
+          <img src="garden/grape04.jpg" alt="ジベレリン処理メモ">
+        </div>
+        <div class="entry-text">
+          <p>シャインマスカットを種なしにするため、ジベレリン処理（無核化処理）を行います。薬剤の種類・濃度・日付を写真に記録しました。</p>
+          <ul class="entry-list">
+            <li>ジベ 25 PP ― 種なし（無核化）処理</li>
+            <li>フルメット 5 PP ― 粒を大きくする</li>
+            <li>アグレプト ― 今回は使用なし</li>
+          </ul>
+          <p class="en">Applying gibberellin to make the grapes seedless (parthenocarpy). I photograph the chemicals, concentrations, and date for precise recordkeeping. Treatment 1: Gibberellin 25ppm + Fulmet 5ppm.</p>
+        </div>
+      </div>
+
+      <!-- 処理後 -->
+      <div class="entry">
+        <div class="entry-date">2024年 初夏 ― 処理後の経過</div>
+        <div class="entry-title">
+          1回目処理後・2回目の前
+          <span class="en">After Treatment 1, Before Treatment 2</span>
+        </div>
+        <div class="photo-grid cols-2">
+          <img src="garden/grape12.jpg" alt="1回目後" class="wide">
+          <img src="garden/grape11.jpg" alt="粒が育ってきた">
+        </div>
+        <div class="entry-text">
+          <p>1回目のジベレリン処理後、粒が少しずつ大きくなってきました。2回目の処理まで10〜14日、毎日状態を確認します。</p>
+          <p class="en">After the first treatment, berries are slowly swelling. Checking the vines every day, waiting 10–14 days for the second application.</p>
+        </div>
+      </div>
+
+      <!-- 成長 -->
+      <div class="entry">
+        <div class="entry-date">2024年 夏 ― 生育</div>
+        <div class="entry-title">
+          葉が茂り、粒が充実してきた
+          <span class="en">Lush Growth — Berries Swelling Nicely</span>
+        </div>
+        <div class="photo-grid cols-2">
+          <img src="garden/grape14.jpg" alt="葉が茂る">
+          <img src="garden/grape08.jpg" alt="充実した粒">
+        </div>
+        <div class="entry-text">
+          <p>ベランダが緑でいっぱいになり、粒もしっかりと大きくなってきました。自動灌水システムのおかげで、水やりの手間が大幅に減っています。</p>
+          <p class="en">The balcony is now full of lush green leaves, and the berries are swelling beautifully. The DIY auto-irrigation system has greatly reduced the daily watering workload.</p>
+        </div>
+      </div>
+
+      <!-- 袋かけ -->
+      <div class="entry">
+        <div class="entry-date">2024年 夏〜秋 ― 袋かけ</div>
+        <div class="entry-title">
+          袋かけで病害虫・雨から保護
+          <span class="en">Bagging to Protect from Pests &amp; Rain</span>
+        </div>
+        <div class="photo-grid cols-2">
+          <img src="garden/grape09.jpg" alt="緑袋ベランダ全体">
+          <img src="garden/grape10.jpg" alt="袋がぱんぱん">
+        </div>
+        <div class="photo-grid cols-2" style="margin-top:8px;">
+          <img src="garden/grape07.jpg" alt="複数房">
+          <img src="garden/grape05.jpg" alt="白袋ベランダ全体">
+        </div>
+        <div class="entry-text">
+          <p>緑のビニール袋・白い不織布袋を使い分けながら、すべての房に袋をかけました。袋の中でぱんぱんに膨らんでいる様子が収穫への期待を高めます。</p>
+          <p class="en">Covered all bunches with bags — green plastic bags early on, then switching to white non-woven fabric. Watching the bags puff out as the berries grow inside is very satisfying.</p>
+        </div>
+      </div>
+
+      <!-- 収穫 -->
+      <div class="entry">
+        <div class="entry-date">2024年8月11日 ― 収穫</div>
+        <div class="entry-title">
+          初収穫！糖度17度のシャインマスカット
+          <span class="en">First Harvest! Shine Muscat — Brix 17°</span>
+        </div>
+        <div class="photo-grid cols-3">
+          <img src="garden/grape01.jpg" alt="房アップ">
+          <img src="garden/grape02.jpg" alt="複数房">
+          <img src="garden/grape03.jpg" alt="収穫したシャインマスカット" class="wide">
+        </div>
+        <div class="highlight">
+          <p>🍇 糖度17度！ ― スーパーで売っているシャインマスカットと同等の甘さ。ベランダ産でここまでできた！</p>
+        </div>
+        <div class="entry-text">
+          <p>8月11日、待望の収穫。糖度計で測ったら17度。市販品と変わらない甘さに感動しました。ベランダで育てたシャインマスカットを家族で食べた瞬間は忘れられません。</p>
+          <p class="en">Harvest day: August 11th. Sugar content measured at 17° Brix — equivalent to premium store-bought Shine Muscat. Sharing the balcony-grown harvest with family was an unforgettable moment.</p>
+        </div>
+      </div>
+
+    </div><!-- /timeline -->
+  </section>
+
+  <!-- 植物コレクション -->
+  <section class="section">
+    <h2 class="section-title">
+      植物コレクション
+      <span>Plant Collection</span>
+    </h2>
+    <div class="plants-grid">
+      <div class="plant-card">
+        <img src="garden/plants01.jpg" alt="パキラとハナカンザシ">
+        <div class="plant-card-body">
+          <h3>パキラ &amp; ハナカンザシ</h3>
+          <p>ハナカンザシは宿根草。今年は夏越しに挑戦中です。どうなるか楽しみです。</p>
+          <p class="en">Pachira &amp; Rhodanthe. The Rhodanthe is a perennial — challenging it to survive the summer this year.</p>
+        </div>
+      </div>
+      <div class="plant-card">
+        <img src="garden/plants02.jpg" alt="シンビジウムとサンスベリア">
+        <div class="plant-card-body">
+          <h3>シンビジウム「ゴールドシップ」&amp; サンスベリア</h3>
+          <p>去年購入のシンビジウム。サンスベリアは100円ショップの3株からここまで大きくなりました。</p>
+          <p class="en">Cymbidium 'Gold Ship' purchased last year. The Sansevieria grew from three 100-yen-shop plants to this impressive size!</p>
+        </div>
+      </div>
+      <div class="plant-card">
+        <img src="garden/plants03.jpg" alt="サンスベリアの花">
+        <div class="plant-card-body">
+          <h3>サンスベリアの開花</h3>
+          <p>サンスベリアの花は非常に珍しい！室内で咲かせることができました。</p>
+          <p class="en">Sansevieria in bloom — extremely rare! Managed to get it flowering indoors. A testament to good care.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 自動灌水システム -->
+  <section class="section">
+    <h2 class="section-title">
+      自作・自動灌水システム
+      <span>DIY Auto-Irrigation System</span>
+    </h2>
+    <div class="system-grid">
+      <div class="system-card">
+        <img src="garden/system01.jpg" alt="制御基板">
+        <div class="system-card-body">
+          <h3>制御部（リレー基板）</h3>
+          <p>マイコン＋リレーボード＋電磁ポンプで自作。2つの鉢への灌水と液肥を自動管理しています。</p>
+          <p class="en">Built from scratch using a microcontroller, relay board, and solenoid pumps. Automatically controls watering and liquid fertilizer delivery for 2 pots.</p>
+        </div>
+      </div>
+      <div class="system-card">
+        <img src="garden/system02.jpg" alt="タンク">
+        <div class="system-card-body">
+          <h3>薬液タンク &amp; 水タンク</h3>
+          <p>タンクの目盛りは手書きで管理。左が液肥（薬液）タンク、右が水タンクです。</p>
+          <p class="en">Handwritten scale markings for precise measurement. Left: liquid fertilizer tank. Right: water tank. Simple but effective.</p>
+        </div>
+      </div>
+      <div class="system-card">
+        <img src="garden/system03.jpg" alt="制御基板と蠕動モーター">
+        <div class="system-card-body">
+          <h3>制御基板 &amp; 蠕動モーター</h3>
+          <p>右が制御基板、左が蠕動モーター（ペリスタルティックポンプ）。液体を一定量ずつ正確に送り出すことができます。</p>
+          <p class="en">Right: control board. Left: peristaltic pump. Delivers precise, consistent amounts of liquid — ideal for automated fertilizer dosing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-title">佐竹の園芸 | Satake Garden</p>
+  <p><a href="index.html">← グラビア製版コンサルタント 佐竹浩二のビジネスサイトへ</a></p>
+  <p class="footer-copy">© 2026 Koji Satake — Kamagaya, Chiba, Japan</p>
+</footer>
+
+</body>
+</html>
